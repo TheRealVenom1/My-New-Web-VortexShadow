@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VortexShadow | Ultimate Developer Portfolio</title>
+    <title>VortexShadow | Portfolio</title>
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
         :root {
@@ -24,7 +24,6 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
             scroll-behavior: smooth;
         }
 
@@ -33,11 +32,16 @@
             color: var(--text-color);
             overflow-x: hidden;
             line-height: 1.6;
+            font-family: 'Poppins', 'Cairo', sans-serif;
+        }
+
+        body.rtl {
+            direction: rtl;
         }
 
         /* Custom Scrollbar */
         ::-webkit-scrollbar {
-            width: 8px;
+            width: 6px;
         }
         ::-webkit-scrollbar-track {
             background: var(--bg-color);
@@ -49,21 +53,21 @@
 
         /* Utility Classes */
         .container {
+            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 1.5rem;
         }
 
         .section-padding {
-            padding: 6rem 0;
+            padding: 5rem 0;
         }
 
         .section-title {
             text-align: center;
-            font-size: 2.5rem;
+            font-size: 2.3rem;
             font-weight: 800;
             margin-bottom: 1rem;
-            letter-spacing: 1px;
         }
 
         .section-title span {
@@ -75,8 +79,9 @@
             text-align: center;
             color: var(--text-muted);
             max-width: 600px;
-            margin: 0 auto 4rem auto;
-            font-size: 1.05rem;
+            margin: 0 auto 3rem auto;
+            font-size: 1rem;
+            padding: 0 1rem;
         }
 
         /* Navbar */
@@ -84,20 +89,19 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.5rem 5%;
+            padding: 1rem 5%;
             position: fixed;
             width: 100%;
             top: 0;
             left: 0;
-            background: rgba(6, 6, 8, 0.8);
+            background: rgba(6, 6, 8, 0.85);
             backdrop-filter: blur(10px);
             z-index: 1000;
             border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-            animation: fadeInDown 1s ease forwards;
         }
 
         .logo {
-            font-size: 1.6rem;
+            font-size: 1.4rem;
             font-weight: 800;
             color: var(--text-color);
             text-decoration: none;
@@ -107,21 +111,24 @@
             color: var(--accent-color);
         }
 
-        .nav-links {
-            display: flex;
-            gap: 2rem;
+        /* Language Toggle Button */
+        .lang-btn {
+            background: var(--accent-color);
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px var(--accent-glow);
+            font-family: 'Poppins', 'Cairo', sans-serif;
         }
 
-        .nav-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent-color);
+        .lang-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px var(--accent-glow);
         }
 
         /* Hero Section */
@@ -132,38 +139,28 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 8rem 1.5rem 4rem 1.5rem;
-            position: relative;
+            padding: 7rem 1rem 3rem 1rem;
             background: radial-gradient(circle at center, rgba(125, 95, 255, 0.08) 0%, transparent 75%);
         }
 
         .avatar-container {
-            position: relative;
-            margin-bottom: 2rem;
-            animation: scaleUp 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+            margin-bottom: 1.5rem;
         }
 
         .avatar {
-            width: 160px;
-            height: 160px;
+            width: 140px;
+            height: 140px;
             border-radius: 50%;
             border: 4px solid var(--accent-color);
-            box-shadow: 0 0 30px var(--accent-glow);
+            box-shadow: 0 0 25px var(--accent-glow);
             object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .avatar:hover {
-            transform: rotate(5deg) scale(1.05);
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 2.8rem;
             font-weight: 800;
             margin-bottom: 0.5rem;
             line-height: 1.2;
-            animation: fadeInUp 1s ease forwards 0.3s;
-            opacity: 0;
         }
 
         .hero h1 span {
@@ -171,12 +168,10 @@
         }
 
         .tagline {
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             color: var(--text-muted);
             font-weight: 600;
             margin-bottom: 1.5rem;
-            animation: fadeInUp 1s ease forwards 0.5s;
-            opacity: 0;
         }
 
         /* Bio Specs Badges */
@@ -184,278 +179,280 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 1rem;
-            margin-bottom: 2.5rem;
-            animation: fadeInUp 1s ease forwards 0.6s;
-            opacity: 0;
+            gap: 0.8rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
         }
 
         .spec-badge {
             background: rgba(255, 255, 255, 0.04);
-            padding: 0.5rem 1.2rem;
+            padding: 0.4rem 1rem;
             border-radius: 20px;
             font-size: 0.85rem;
             font-weight: 500;
             border: 1px solid rgba(255, 255, 255, 0.08);
             color: #e0e0e6;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        body.rtl .spec-badge i {
+            margin-left: 2px;
+            margin-right: 0;
         }
 
         .spec-badge i {
             color: var(--accent-color);
-            margin-right: 6px;
         }
 
-        /* The Savage Quote */
+        /* Savage Quote */
         .savage-quote {
             background: rgba(20, 20, 31, 0.7);
             border-left: 5px solid var(--accent-color);
-            padding: 1.5rem 2rem;
-            border-radius: 0 20px 20px 0;
-            max-width: 650px;
+            padding: 1.2rem 1.5rem;
+            border-radius: 0 15px 15px 0;
+            max-width: 600px;
             width: 100%;
-            margin-bottom: 3rem;
             box-shadow: 0 15px 35px rgba(0,0,0,0.6);
-            animation: fadeInUp 1s ease forwards 0.7s;
-            opacity: 0;
             backdrop-filter: blur(8px);
-            text-align: left;
+        }
+
+        body.rtl .savage-quote {
+            border-left: none;
+            border-right: 5px solid var(--accent-color);
+            border-radius: 15px 0 0 15px;
+            text-align: right;
         }
 
         .savage-quote p {
             font-style: italic;
-            font-size: 1.15rem;
+            font-size: 1.05rem;
             font-weight: 600;
-            letter-spacing: 0.5px;
-            color: #ffffff;
         }
 
-        /* About Me Section (New) */
+        /* About Me Section */
         .about {
             background-color: var(--bg-light);
         }
 
         .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
         }
 
+        /* جعل الكروت والبرجرافات مرنة بالكامل */
         .about-text h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
+            font-size: 1.6rem;
+            margin-bottom: 1.2rem;
             color: #ffffff;
         }
 
         .about-text p {
             color: var(--text-muted);
-            margin-bottom: 1.5rem;
-            font-size: 1.05rem;
+            margin-bottom: 1.2rem;
+            font-size: 1rem;
         }
 
         .about-stats {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.2rem;
+            width: 100%;
         }
 
         .stat-box {
             background: var(--card-bg);
-            padding: 2rem;
+            padding: 1.5rem;
             border-radius: 15px;
             border: 1px solid rgba(255, 255, 255, 0.02);
             text-align: center;
         }
 
         .stat-box h4 {
-            font-size: 2.2rem;
+            font-size: 2rem;
             color: var(--accent-color);
             font-weight: 800;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.3rem;
         }
 
         .stat-box p {
             color: var(--text-muted);
-            font-size: 0.9rem;
-            font-weight: 500;
+            font-size: 0.85rem;
         }
 
-        /* Services / Capabilities Section */
+        /* Capabilities Section */
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
         }
 
         .card {
             background-color: var(--card-bg);
-            padding: 3rem 2rem;
-            border-radius: 20px;
-            text-align: left;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            padding: 2rem 1.5rem;
+            border-radius: 15px;
+            text-align: start;
             border: 1px solid rgba(255, 255, 255, 0.02);
-            position: relative;
-            overflow: hidden;
+            transition: transform 0.3s ease;
         }
 
         .card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-5px);
             border-color: var(--accent-color);
-            box-shadow: 0 20px 40px rgba(125, 95, 255, 0.12);
         }
 
         .card i {
-            font-size: 2.8rem;
+            font-size: 2.5rem;
             color: var(--accent-color);
-            margin-bottom: 1.5rem;
-            display: inline-block;
+            margin-bottom: 1rem;
         }
 
         .card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
+            font-size: 1.25rem;
+            margin-bottom: 0.8rem;
         }
 
         .card p {
             color: var(--text-muted);
-            font-size: 0.95rem;
-            line-height: 1.7;
+            font-size: 0.9rem;
         }
 
-        /* Timeline Section (New) */
+        /* Philosophy Banner */
+        .philosophy-banner {
+            background: linear-gradient(135deg, #141423 0%, #060608 100%);
+            padding: 3rem 1.5rem;
+            text-align: center;
+            border-radius: 20px;
+            margin-top: 3rem;
+            border: 1px solid rgba(125, 95, 255, 0.1);
+        }
+
+        .philosophy-banner h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+        }
+
+        .philosophy-banner p {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        /* Timeline Section */
         .timeline-section {
             background-color: var(--bg-light);
         }
 
         .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
             position: relative;
-            max-width: 800px;
-            margin: 0 auto;
+            padding-left: 1rem;
         }
 
-        .timeline::after {
+        body.rtl .timeline {
+            padding-left: 0;
+            padding-right: 1rem;
+        }
+
+        .timeline::before {
             content: '';
             position: absolute;
-            width: 2px;
-            background: rgba(255, 255, 255, 0.05);
+            left: 0;
             top: 0;
             bottom: 0;
-            left: 50%;
-            margin-left: -1px;
+            width: 2px;
+            background: rgba(125, 95, 255, 0.2);
         }
 
-        .timeline-item {
-            padding: 10px 40px;
-            position: relative;
-            background-color: inherit;
-            width: 50%;
+        body.rtl .timeline::before {
+            left: auto;
+            right: 0;
         }
-
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            width: 16px;
-            height: 16px;
-            right: -8px;
-            background-color: var(--bg-color);
-            border: 4px solid var(--accent-color);
-            top: 15px;
-            border-radius: 50%;
-            z-index: 1;
-        }
-
-        .left { left: 0; text-align: right; }
-        .right { left: 50%; text-align: left; }
-
-        .left::after { left: auto; right: -8px; }
-        .right::after { left: -8px; }
 
         .timeline-content {
-            padding: 1.5rem;
             background: var(--card-bg);
-            position: relative;
+            padding: 1.2rem;
             border-radius: 12px;
             border: 1px solid rgba(255, 255, 255, 0.02);
+            position: relative;
         }
 
         .timeline-content h3 {
             color: var(--accent-color);
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
         }
 
         .timeline-content p {
             color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-
-        /* Philosophy / Workspace Section (New) */
-        .philosophy-banner {
-            background: linear-gradient(135deg, #141423 0%, #060608 100%);
-            padding: 5rem 2rem;
-            text-align: center;
-            border-radius: 30px;
-            margin-top: 4rem;
-            border: 1px solid rgba(125, 95, 255, 0.1);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-        }
-
-        .philosophy-banner h3 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .philosophy-banner p {
-            max-width: 800px;
-            margin: 0 auto;
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            line-height: 1.8;
+            font-size: 0.85rem;
         }
 
         /* Footer */
         footer {
             text-align: center;
-            padding: 3rem;
-            background-color: var(--bg-color);
+            padding: 2rem;
             color: var(--text-muted);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             border-top: 1px solid rgba(255, 255, 255, 0.04);
         }
 
-        /* Animations Keyframes */
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* جعل الشاشات الكبيرة تعرض الـ Grid والـ About بشكل متوازي */
+        @media (min-width: 768px) {
+            .about-content {
+                flex-direction: row;
+                align-items: center;
+            }
+            .about-text, .about-stats {
+                flex: 1;
+            }
+            .about-stats {
+                grid-template-columns: 1fr 1fr;
+            }
+            .timeline {
+                padding-left: 0;
+                align-items: center;
+            }
+            body.rtl .timeline {
+                padding-right: 0;
+            }
+            .timeline::before {
+                left: 50%;
+            }
+            body.rtl .timeline::before {
+                right: 50%;
+            }
+            .timeline-item {
+                width: 45%;
+                margin-bottom: 1rem;
+            }
+            .timeline-item.left {
+                margin-right: auto;
+                text-align: right;
+            }
+            .timeline-item.right {
+                margin-left: auto;
+                text-align: left;
+            }
+            body.rtl .timeline-item.left {
+                margin-right: 0;
+                margin-left: auto;
+                text-align: left;
+            }
+            body.rtl .timeline-item.right {
+                margin-left: 0;
+                margin-right: auto;
+                text-align: right;
+            }
         }
 
-        @keyframes scaleUp {
-            from { opacity: 0; transform: scale(0.5); }
-            to { opacity: 1; transform: scale(1); }
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Responsive Layout */
-        @media (max-width: 992px) {
-            .about-content { grid-template-columns: 1fr; gap: 3rem; }
-            .hero h1 { font-size: 2.8rem; }
-        }
-
-        @media (max-width: 768px) {
-            .nav-links { display: none; } /* إخفاء اللينكات البسيطة في الشاشات الصغيرة للمظهر */
-            nav { justify-content: center; }
-            .timeline::after { left: 31px; }
-            .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; text-align: left; }
-            .timeline-item::after { left: 22px; right: auto; }
-            .left { left: 0; }
-            .right { left: 0; }
-            .hero h1 { font-size: 2.3rem; }
-            .savage-quote p { font-size: 1rem; }
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 2.2rem; }
+            .tagline { font-size: 1rem; }
+            .section-title { font-size: 1.8rem; }
         }
     </style>
 </head>
@@ -464,11 +461,7 @@
     <!-- Navbar -->
     <nav>
         <a href="#" class="logo">Vortex<span>Shadow</span></a>
-        <div class="nav-links">
-            <a href="#about">About</a>
-            <a href="#services">Capabilities</a>
-            <a href="#journey">Journey</a>
-        </div>
+        <button class="lang-btn" id="langBtn" onclick="toggleLanguage()">AR</button>
     </nav>
 
     <!-- Hero Section -->
@@ -477,130 +470,122 @@
             <img src="https://i.ibb.co/RkrRpN6h/file-000000001600724393815fc0366742c3.png" alt="VortexShadow Avatar" class="avatar">
         </div>
         
-        <h1>Hi, I am <span>Kiro</span></h1>
-        <div class="tagline">FullStack Developer & Master of System Architectures</div>
+        <h1 id="heroTitle">Hi, I am <span>Kiro</span></h1>
+        <div class="tagline" id="heroTagline">FullStack Developer & Master of System Architectures</div>
 
         <!-- Badges -->
         <div class="bio-specs">
-            <div class="spec-badge"><i class="fas fa-terminal"></i> Alias: VortexShadow</div>
-            <div class="spec-badge"><i class="fas fa-bolt"></i> 15 Years Old</div>
-            <div class="spec-badge"><i class="fas fa-globe-africa"></i> Cairo, Egypt</div>
-            <div class="spec-badge"><i class="fas fa-history"></i> 6+ Years Experience</div>
+            <div class="spec-badge"><i class="fas fa-terminal"></i> <span id="badge1">Alias: VortexShadow</span></div>
+            <div class="spec-badge"><i class="fas fa-bolt"></i> <span id="badge2">15 Years Old</span></div>
+            <div class="spec-badge"><i class="fas fa-globe-africa"></i> <span id="badge3">Cairo, Egypt</span></div>
+            <div class="spec-badge"><i class="fas fa-history"></i> <span id="badge4">6+ Years Experience</span></div>
         </div>
 
         <!-- Savage Quote -->
         <div class="savage-quote">
-            <p>"Coding is my ultimate priority, and frankly... I couldn't care less about anyone else's opinion. Code talks, bullshit walks."</p>
+            <p id="savageQuote">"Coding is my ultimate priority, and frankly... I couldn't care less about anyone else's opinion. Code talks, bullshit walks."</p>
         </div>
     </section>
 
     <!-- About Me Section -->
-    <section class="about section-padding" id="about">
+    <section class="about section-padding">
         <div class="container">
-            <h2 class="section-title">Who is <span>VortexShadow?</span></h2>
-            <p class="section-subtitle">A deep dive into the mastermind behind the code, breaking digital boundaries since day one.</p>
+            <h2 class="section-title" id="aboutTitle">Who is <span>VortexShadow?</span></h2>
+            <p class="section-subtitle" id="aboutSubtitle">A deep dive into the mastermind behind the code, breaking digital boundaries since day one.</p>
             
             <div class="about-content">
-                <div class="about-text">
+                <div class="about-text" id="aboutText">
                     <h3>Engineering reliable solutions out of pure logic.</h3>
                     <p>Born and raised in Cairo, Egypt, my coding journey didn’t start in a university lecture hall—it started straight from my bedroom at just 9 years old. I skipped the basic introductory level and dove headfirst into deep backend logic, custom automation, and scripting environments.</p>
                     <p>Today, as a 15-year-old FullStack Developer, I build absolute ecosystems. Whether it's crafting complex multi-functional Discord frameworks, deploying heavily optimized web apps, or developing comprehensive custom structures for Minecraft seasons, I design every single layer from scratch with complete mastery.</p>
                 </div>
                 <div class="about-stats">
                     <div class="stat-box">
-                        <h4>6+</h4>
-                        <p>Years of Intensive Coding</p>
+                        <h4 id="stat1-num">6+</h4>
+                        <p id="stat1-text">Years of Intensive Coding</p>
                     </div>
                     <div class="stat-box">
-                        <h4>100%</h4>
-                        <p>Self-Taught Competence</p>
+                        <h4 id="stat2-num">100%</h4>
+                        <p id="stat2-text">Self-Taught Competence</p>
                     </div>
                     <div class="stat-box">
-                        <h4>Full</h4>
-                        <p>Stack Integration Capable</p>
+                        <h4 id="stat3-num">Full</h4>
+                        <p id="stat3-text">Stack Integration Capable</p>
                     </div>
                     <div class="stat-box">
-                        <h4>0</h4>
-                        <p>Excuses Tolerated</p>
+                        <h4 id="stat4-num">0</h4>
+                        <p id="stat4-text">Excuses Tolerated</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services / Capabilities Section -->
-    <section class="services section-padding" id="services">
+    <!-- Capabilities Section -->
+    <section class="services section-padding">
         <div class="container">
-            <h2 class="section-title">Ultimate <span>Capabilities</span></h2>
-            <p class="section-subtitle">From bot frameworks to virtual game environments, if it can be coded, I can make it happen.</p>
+            <h2 class="section-title" id="skillsTitle">Ultimate <span>Capabilities</span></h2>
+            <p class="section-subtitle" id="skillsSubtitle">From bot frameworks to virtual game environments, if it can be coded, I can make it happen.</p>
             
             <div class="grid">
-                <!-- Card 1 -->
                 <div class="card">
                     <i class="fab fa-discord"></i>
-                    <h3>Advanced Discord Bots</h3>
-                    <p>Programming bulletproof, highly scalable, and multi-purpose automated Discord bots. Specialized in heavy system logging, database integrations, custom command frameworks, and complete moderation auto-pilots.</p>
+                    <h3 id="card1-title">Advanced Discord Bots</h3>
+                    <p id="card1-p">Programming bulletproof, highly scalable, and multi-purpose automated Discord bots. Specialized in heavy system logging, database integrations, custom command frameworks, and complete moderation auto-pilots.</p>
                 </div>
-
-                <!-- Card 2 -->
                 <div class="card">
                     <i class="fas fa-laptop-code"></i>
-                    <h3>FullStack Websites</h3>
-                    <p>Architecting secure, hyper-responsive, and modern web platforms. Crafting exceptional frontend interfaces using precise styling rules combined with highly optimized backend infrastructure that works on any screen size seamlessly.</p>
+                    <h3 id="card2-title">FullStack Websites</h3>
+                    <p id="card2-p">Architecting secure, hyper-responsive, and modern web platforms. Crafting exceptional frontend interfaces using precise styling rules combined with highly optimized backend infrastructure that works on any screen size seamlessly.</p>
                 </div>
-
-                <!-- Card 3 -->
                 <div class="card">
                     <i class="fas fa-cubes"></i>
-                    <h3>Minecraft Seasons</h3>
-                    <p>Designing completely custom Minecraft server seasons. Orchestrating fully functional network setups, customized gameplay mechanics, handling host-level performance tuning, and creating flawless events for large player bases.</p>
+                    <h3 id="card3-title">Minecraft Seasons</h3>
+                    <p id="card3-p">Designing completely custom Minecraft server seasons. Orchestrating fully functional network setups, customized gameplay mechanics, handling host-level performance tuning, and creating flawless events for large player bases.</p>
                 </div>
-
-                <!-- Card 4 -->
                 <div class="card">
                     <i class="fas fa-project-diagram"></i>
-                    <h3>Plugins & Mods</h3>
-                    <p>Writing standalone game logic extensions, custom server plugins, and modifications. Breaking the default game limits by overriding native mechanics to inject completely new, customized features with extreme code efficiency.</p>
+                    <h3 id="card4-title">Plugins & Mods</h3>
+                    <p id="card4-p">Writing standalone game logic extensions, custom server plugins, and modifications. Breaking the default game limits by overriding native mechanics to inject completely new, customized features with extreme code efficiency.</p>
                 </div>
             </div>
 
-            <!-- Philosophy Banner (Extra Text Space) -->
             <div class="philosophy-banner">
-                <h3>My Execution Creed</h3>
-                <p>"I do not code to fit in; I code to build infrastructures that stand alone. While others waste time discussing theoretical limitations, I spend my hours implementing functional logic. Every single project I touch is treated with absolute performance precision—from raw lines of script to final execution deployment."</p>
+                <h3 id="creedTitle">My Execution Creed</h3>
+                <p id="creedP">"I do not code to fit in; I code to build infrastructures that stand alone. While others waste time discussing theoretical limitations, I spend my hours implementing functional logic. Every single project I touch is treated with absolute performance precision—from raw lines of script to final execution deployment."</p>
             </div>
         </div>
     </section>
 
     <!-- Timeline Journey Section -->
-    <section class="timeline-section section-padding" id="journey">
+    <section class="timeline-section section-padding">
         <div class="container">
-            <h2 class="section-title">The <span>Timeline</span></h2>
-            <p class="section-subtitle">A look back at how a 9-year-old kid evolved into a powerhouse developer.</p>
+            <h2 class="section-title" id="timeTitle">The <span>Timeline</span></h2>
+            <p class="section-subtitle" id="timeSubtitle">A look back at how a 9-year-old kid evolved into a powerhouse developer.</p>
             
             <div class="timeline">
                 <div class="timeline-item left">
                     <div class="timeline-content">
-                        <h3>2020 - The Genesis</h3>
-                        <p>Dived deep into standard scripting and understood the foundational core blocks of programming logic. Writing my first automated actions.</p>
+                        <h3 id="time1-h">2020 - The Genesis</h3>
+                        <p id="time1-p">Dived deep into standard scripting and understood the foundational core blocks of programming logic. Writing my first automated actions.</p>
                     </div>
                 </div>
                 <div class="timeline-item right">
                     <div class="timeline-content">
-                        <h3>2022 - Bot Architecture</h3>
-                        <p>Expanded heavily into advanced Node.js and API structures. Developed multiple sophisticated Discord frameworks capable of managing thousands of requests seamlessly.</p>
+                        <h3 id="time2-h">2022 - Bot Architecture</h3>
+                        <p id="time2-p">Expanded heavily into advanced Node.js and API structures. Developed multiple sophisticated Discord frameworks capable of managing thousands of requests seamlessly.</p>
                     </div>
                 </div>
                 <div class="timeline-item left">
                     <div class="timeline-content">
-                        <h3>2024 - Gaming Infrastructures</h3>
-                        <p>Mastered Minecraft server engineering, diving into Java-based plugin adjustments, server resource optimization, and designing custom tailored competitive seasons.</p>
+                        <h3 id="time3-h">2024 - Gaming Infrastructures</h3>
+                        <p id="time3-p">Mastered Minecraft server engineering, diving into Java-based plugin adjustments, server resource optimization, and designing custom tailored competitive seasons.</p>
                     </div>
                 </div>
                 <div class="timeline-item right">
                     <div class="timeline-content">
-                        <h3>2026 - Present Mastery</h3>
-                        <p>Rebranded as VortexShadow. Actively engineering high-end responsive Web Applications, combining advanced frontend UI with powerful, scalable backend databases.</p>
+                        <h3 id="time4-h">2026 - Present Mastery</h3>
+                        <p id="time4-p">Rebranded as VortexShadow. Actively engineering high-end responsive Web Applications, combining advanced frontend UI with powerful, scalable backend databases.</p>
                     </div>
                 </div>
             </div>
@@ -608,12 +593,146 @@
     </section>
 
     <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 VortexShadow (Kiro). All rights reserved. Built with pride in Cairo, Egypt.</p>
-        </div>
+    <footer id="footerText">
+        &copy; 2026 VortexShadow (Kiro). All rights reserved. Built with pride in Cairo, Egypt.
     </footer>
 
+    <!-- Translation Script -->
+    <script>
+        let currentLang = 'en';
+
+        const data = {
+            en: {
+                heroTitle: "Hi, I am <span>Kiro</span>",
+                heroTagline: "FullStack Developer & Master of System Architectures",
+                badge1: "Alias: VortexShadow",
+                badge2: "15 Years Old",
+                badge3: "Cairo, Egypt",
+                badge4: "6+ Years Experience",
+                savageQuote: '"Coding is my ultimate priority, and frankly... I couldn\'t care less about anyone else\'s opinion. Code talks, bullshit walks."',
+                aboutTitle: "Who is <span>VortexShadow?</span>",
+                aboutSubtitle: "A deep dive into the mastermind behind the code, breaking digital boundaries since day one.",
+                aboutText: `<h3>Engineering reliable solutions out of pure logic.</h3>
+                            <p>Born and raised in Cairo, Egypt, my coding journey didn’t start in a university lecture hall—it started straight from my bedroom at just 9 years old. I skipped the basic introductory level and dove headfirst into deep backend logic, custom automation, and scripting environments.</p>
+                            <p>Today, as a 15-year-old FullStack Developer, I build absolute ecosystems. Whether it's crafting complex multi-functional Discord frameworks, deploying heavily optimized web apps, or developing comprehensive custom structures for Minecraft seasons, I design every single layer from scratch with complete mastery.</p>`,
+                stat1_num: "6+", stat1_text: "Years of Intensive Coding",
+                stat2_num: "100%", stat2_text: "Self-Taught Competence",
+                stat3_num: "Full", stat3_text: "Stack Integration Capable",
+                stat4_num: "0", stat4_text: "Excuses Tolerated",
+                skillsTitle: "Ultimate <span>Capabilities</span>",
+                skillsSubtitle: "From bot frameworks to virtual game environments, if it can be coded, I can make it happen.",
+                card1_title: "Advanced Discord Bots",
+                card1_p: "Programming bulletproof, highly scalable, and multi-purpose automated Discord bots. Specialized in heavy system logging, database integrations, custom command frameworks, and complete moderation auto-pilots.",
+                card2_title: "FullStack Websites",
+                card2_p: "Architecting secure, hyper-responsive, and modern web platforms. Crafting exceptional frontend interfaces using precise styling rules combined with highly optimized backend infrastructure that works on any screen size seamlessly.",
+                card3_title: "Minecraft Seasons",
+                card3_p: "Designing completely custom Minecraft server seasons. Orchestrating fully functional network setups, customized gameplay mechanics, handling host-level performance tuning, and creating flawless events for large player bases.",
+                card4_title: "Plugins & Mods",
+                card4_p: "Writing standalone game logic extensions, custom server plugins, and modifications. Breaking the default game limits by overriding native mechanics to inject completely new, customized features with extreme code efficiency.",
+                creedTitle: "My Execution Creed",
+                creedP: '"I do not code to fit in; I code to build infrastructures that stand alone. While others waste time discussing theoretical limitations, I spend my hours implementing functional logic. Every single project I touch is treated with absolute performance precision—from raw lines of script to final execution deployment."',
+                timeTitle: "The <span>Timeline</span>",
+                timeSubtitle: "A look back at how a 9-year-old kid evolved into a powerhouse developer.",
+                time1_h: "2020 - The Genesis", time1_p: "Dived deep into standard scripting and understood the foundational core blocks of programming logic. Writing my first automated actions.",
+                time2_h: "2022 - Bot Architecture", time2_p: "Expanded heavily into advanced Node.js and API structures. Developed multiple sophisticated Discord frameworks capable of managing thousands of requests seamlessly.",
+                time3_h: "2024 - Gaming Infrastructures", time3_p: "Mastered Minecraft server engineering, diving into Java-based plugin adjustments, server resource optimization, and designing custom tailored competitive seasons.",
+                time4_h: "2026 - Present Mastery", time4_p: "Rebranded as VortexShadow. Actively engineering high-end responsive Web Applications, combining advanced frontend UI with powerful, scalable backend databases.",
+                footer: "&copy; 2026 VortexShadow (Kiro). All rights reserved. Built with pride in Cairo, Egypt."
+            },
+            ar: {
+                heroTitle: "يا هلا، أنا <span>كيرو</span>",
+                heroTagline: "مطور فول ستاك وبرمجلي كل حاجة في السيستم",
+                badge1: "اللقب: VortexShadow",
+                badge2: "عندي 15 سنة",
+                badge3: "القاهرة، مصر",
+                badge4: "خبرة +6 سنين",
+                savageQuote: '"الكودينج وبس هو أهم حاجة عندي، وطز في رأي أي حد تاني.. الكود بيتكلم والشغل بيبان، والباقي كله هري!" 😂🔥',
+                aboutTitle: "مين هو <span>VortexShadow؟</span>",
+                aboutSubtitle: "عاش، خدلك لفة سريعة في دماغ المطور اللي بدأ من تحت الصفر ومبيديش فرصة للأعذار.",
+                aboutText: `<h3>بندوس في الصعب وبنعمل حلول حقيقية بالمنطق.</h3>
+                            <p>اتولدت وعشت في القاهرة، ورحلتي في البرمجة مبدأتش من قاعات الكليات.. دي بدأت من أوضتي وأنا عندي 9 سنين بس! دخلت علطول في التقيل، في لورجيك الباك-إند، السكريبتات، والأوتوميشن.</p>
+                            <p>النهاردة، وأنا عندي 15 سنة وبشتغل فول ستاك ديفيلوبر، أنا بعمل أنظمة كاملة متكاملة. من أول بوتات ديسكورد معقدة ومميزة، لـ مواقع سريعة ومتجاوبة، لحد إدارة وتظبيط مواسم كاملة لسيرفرات ماين كرافت بكل تفاصيلها.. ببني كل سطر بكفاءة تامة.</p>`,
+                stat1_num: "+6", stat1_text: "سنين من الكودينج والفرم",
+                stat2_num: "100%", stat2_text: "تعليم ذاتي ومجهود شخصي",
+                stat3_num: "جاهز", stat3_text: "للفول ستاك والربط الكامل",
+                stat4_num: "0", stat4_text: "مفيش وقت للأعذار",
+                skillsTitle: "أقوى <span>المهارات</span>",
+                skillsSubtitle: "من بوتات الديسكورد لحد بيئات الألعاب والسيرفرات، طالما كود يبقى هعملهولك وبأعلى كفاءة.",
+                card1_title: "بوتات ديسكورد متطورة",
+                card1_p: "برمجة بوتات ديسكورد جبارة وسريعة لخدمة السيرفرات الكبيرة. شغل داتا بيز، لوجات حماية، سيستم موديريشن شغال أوتوماتيك بالكامل وبأمان تام.",
+                card2_title: "مواقع FullStack",
+                card2_p: "تصميم وبناء مواقع ويب سريعة جداً ومتجاوبة مع أي شاشة في الدنيا. بدمج واجهات فرونت-إند شكلها رايق مع باك-إند قوي ومؤمن ميفوتش غلطة.",
+                card3_title: "مواسم ماين كرافت",
+                card3_p: "تظبيط وبناء مواسم كاملة لسيرفرات ماين كرافت. هندسة السيرفر من الصفر، ربط النيتورك، تظبيط الهوست والأداء، وعمل إيفنتات خالية من اللاج.",
+                card4_title: "بلجنز ومودز (Plugins & Mods)",
+                card4_p: "كتابة وتعديل البلجنز والمودز الخاصة بماين كرافت كود صافي ونضيف. بكسر حدود اللعبة الافتراضية وبضيف فيها أي فكرة جديدة تخطر في بالك وبأعلى أداء.",
+                creedTitle: "مبدئي في الشغل والاستلام",
+                creedP: '"أنا مش ببرمج عشان أكون شبه حد، أنا ببرمج عشان أعمل سيستم يقف على رجله لوحده. في الوقت اللي غيري بيضيع وقت في الكلام عن المشاكل الصعبة، أنا بقضيه في التنفيذ العملي. أي مشروع بلمسه بيتعامل بدقة رهيبة من أول سطر كود لحد الـ Deploy النهائي."',
+                timeTitle: "رحلة <span>العمر</span>",
+                timeSubtitle: "بص بصه ورا كدا وشوف إزاي طفل عنده 9 سنين اتحول لـ وحش برمجيات.",
+                time1_h: "2020 - البداية والأساس", time1_p: "دخلت في السكريبتات وفهمت أساسيات المنطق البرمجي، وعملت أول شغل أوتوماتيك بسيط.",
+                time2_h: "2022 - معمارية البوتات", time2_p: "اتوسعت جامد في الـ Node.js وعملت بوتات ديسكورد قوية بتستحمل آلاف الروكويستات من غير ما تقع.",
+                time3_h: "2024 - سيرفرات ماين كرافت", time3_p: "فهمت كواليس السيرفرات، تعديل بلجنز الجافا، تظبيط استهلاك الموارد، وبناء مواسم تنافسية متكاملة.",
+                time4_h: "2026 - الاحتراف والـ Mastery", time4_p: "الاسم الجديد بقا VortexShadow. شغال دلوقتي على ويب أبليكيشنز بميزات متطورة وربط داتا بيز حقيقي وسريع.",
+                footer: "&copy; 2026 جميع الحقوق محفوظة لـ VortexShadow (كيرو). اتعمل بكل حب وفخر في القاهرة، مصر."
+            }
+        };
+
+        function toggleLanguage() {
+            if (currentLang === 'en') {
+                currentLang = 'ar';
+                document.body.classList.add('rtl');
+                document.getElementById('langBtn').innerText = 'EN';
+            } else {
+                currentLang = 'en';
+                document.body.classList.remove('rtl');
+                document.getElementById('langBtn').innerText = 'AR';
+            }
+
+            const l = data[currentLang];
+            document.getElementById('heroTitle').innerHTML = l.heroTitle;
+            document.getElementById('heroTagline').innerText = l.heroTagline;
+            document.getElementById('badge1').innerText = l.badge1;
+            document.getElementById('badge2').innerText = l.badge2;
+            document.getElementById('badge3').innerText = l.badge3;
+            document.getElementById('badge4').innerText = l.badge4;
+            document.getElementById('savageQuote').innerText = l.savageQuote;
+            document.getElementById('aboutTitle').innerHTML = l.aboutTitle;
+            document.getElementById('aboutSubtitle').innerText = l.aboutSubtitle;
+            document.getElementById('aboutText').innerHTML = l.aboutText;
+            document.getElementById('stat1-num').innerText = l.stat1_num;
+            document.getElementById('stat1-text').innerText = l.stat1_text;
+            document.getElementById('stat2-num').innerText = l.stat2_num;
+            document.getElementById('stat2-text').innerText = l.stat2_text;
+            document.getElementById('stat3-num').innerText = l.stat3_num;
+            document.getElementById('stat3-text').innerText = l.stat3_text;
+            document.getElementById('stat4-num').innerText = l.stat4_num;
+            document.getElementById('stat4-text').innerText = l.stat4_text;
+            document.getElementById('skillsTitle').innerHTML = l.skillsTitle;
+            document.getElementById('skillsSubtitle').innerText = l.skillsSubtitle;
+            document.getElementById('card1-title').innerText = l.card1_title;
+            document.getElementById('card1-p').innerText = l.card1_p;
+            document.getElementById('card2-title').innerText = l.card2_title;
+            document.getElementById('card2-p').innerText = l.card2_p;
+            document.getElementById('card3-title').innerText = l.card3_title;
+            document.getElementById('card3-p').innerText = l.card3_p;
+            document.getElementById('card4-title').innerText = l.card4_title;
+            document.getElementById('card4-p').innerText = l.card4_p;
+            document.getElementById('creedTitle').innerText = l.creedTitle;
+            document.getElementById('creedP').innerText = l.creedP;
+            document.getElementById('timeTitle').innerHTML = l.timeTitle;
+            document.getElementById('timeSubtitle').innerText = l.timeSubtitle;
+            document.getElementById('time1-h').innerText = l.time1_h;
+            document.getElementById('time1-p').innerText = l.time1_p;
+            document.getElementById('time2-h').innerText = l.time2_h;
+            document.getElementById('time2-p').innerText = l.time2_p;
+            document.getElementById('time3-h').innerText = l.time3_h;
+            document.getElementById('time3-p').innerText = l.time3_p;
+            document.getElementById('time4-h').innerText = l.time4_h;
+            document.getElementById('time4-p').innerText = l.time4_p;
+            document.getElementById('footerText').innerHTML = l.footer;
+        }
+    </script>
 </body>
 </html>
  
