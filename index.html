@@ -11,13 +11,14 @@
     
     <style>
         :root {
-            --bg-color: #060608;
-            --bg-light: #0d0d13;
-            --card-bg: #14141f;
-            --accent-color: #7d5fff;
-            --accent-glow: rgba(125, 95, 255, 0.4);
+            /* الألوان الجديدة - VortexShadow Theme */
+            --bg-color: #050505;
+            --bg-light: #0a0a0a;
+            --card-bg: #121212;
+            --accent-color: #e60000; /* أحمر دموي قوي */
+            --accent-glow: rgba(230, 0, 0, 0.4);
             --text-color: #ffffff;
-            --text-muted: #a5a5b2;
+            --text-muted: #a0a0a0;
         }
 
         * {
@@ -94,10 +95,10 @@
             width: 100%;
             top: 0;
             left: 0;
-            background: rgba(6, 6, 8, 0.85);
+            background: rgba(5, 5, 5, 0.85);
             backdrop-filter: blur(10px);
             z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            border-bottom: 1px solid rgba(230, 0, 0, 0.1);
         }
 
         .logo {
@@ -140,7 +141,7 @@
             align-items: center;
             text-align: center;
             padding: 7rem 1rem 3rem 1rem;
-            background: radial-gradient(circle at center, rgba(125, 95, 255, 0.08) 0%, transparent 75%);
+            background: radial-gradient(circle at center, rgba(230, 0, 0, 0.08) 0%, transparent 75%);
         }
 
         .avatar-container {
@@ -185,12 +186,12 @@
         }
 
         .spec-badge {
-            background: rgba(255, 255, 255, 0.04);
+            background: rgba(255, 255, 255, 0.03);
             padding: 0.4rem 1rem;
             border-radius: 20px;
             font-size: 0.85rem;
             font-weight: 500;
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(230, 0, 0, 0.1);
             color: #e0e0e6;
             display: flex;
             align-items: center;
@@ -208,7 +209,7 @@
 
         /* Savage Quote */
         .savage-quote {
-            background: rgba(20, 20, 31, 0.7);
+            background: rgba(18, 18, 18, 0.7);
             border-left: 5px solid var(--accent-color);
             padding: 1.2rem 1.5rem;
             border-radius: 0 15px 15px 0;
@@ -265,7 +266,7 @@
             background: var(--card-bg);
             padding: 1.5rem;
             border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(230, 0, 0, 0.05);
             text-align: center;
         }
 
@@ -293,7 +294,7 @@
             padding: 2rem 1.5rem;
             border-radius: 15px;
             text-align: start;
-            border: 1px solid rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(230, 0, 0, 0.05);
             transition: transform 0.3s ease;
         }
 
@@ -320,12 +321,12 @@
 
         /* Philosophy Banner */
         .philosophy-banner {
-            background: linear-gradient(135deg, #141423 0%, #060608 100%);
+            background: linear-gradient(135deg, #180000 0%, #050505 100%);
             padding: 3rem 1.5rem;
             text-align: center;
             border-radius: 20px;
             margin-top: 3rem;
-            border: 1px solid rgba(125, 95, 255, 0.1);
+            border: 1px solid rgba(230, 0, 0, 0.1);
         }
 
         .philosophy-banner h3 {
@@ -363,7 +364,7 @@
             top: 0;
             bottom: 0;
             width: 2px;
-            background: rgba(125, 95, 255, 0.2);
+            background: rgba(230, 0, 0, 0.2);
         }
 
         body.rtl .timeline::before {
@@ -375,7 +376,7 @@
             background: var(--card-bg);
             padding: 1.2rem;
             border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(230, 0, 0, 0.05);
             position: relative;
         }
 
@@ -396,7 +397,7 @@
             padding: 2rem;
             color: var(--text-muted);
             font-size: 0.85rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            border-top: 1px solid rgba(230, 0, 0, 0.05);
         }
 
         /* Responsive Breakpoints */
@@ -734,4 +735,3 @@
     </script>
 </body>
 </html>
- 
