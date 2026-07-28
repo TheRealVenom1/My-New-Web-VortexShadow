@@ -3,19 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VortexShadow | Portfolio</title>
-    <!-- Font Awesome for Icons -->
+    <title>VortexShadow | Portfolio & App</title>
+    <meta name="description" content="VortexShadow Website & Portfolio" />
+    <meta name="author" content="VortexShadow" />
+    <link rel="icon" type="image/png" href="https://i.ibb.co/wFX9XVCv/file-000000008ba871f4845a6e51a021867f.png">
+
+    <!-- Open Graph & Social Meta -->
+    <meta property="og:title" content="VortexShadow Website" />
+    <meta property="og:description" content="Hi, I am VortexShadow, Join My Website!" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://i.ibb.co/wFX9XVCv/file-000000008ba871f4845a6e51a021867f.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Icons & Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- React App Assets Integration -->
+    <script type="module" crossorigin src="/assets/index-DqnGO9AM.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-C0hq3I7x.css">
+
     <style>
         :root {
-            /* الألوان الجديدة - VortexShadow Theme */
             --bg-color: #050505;
             --bg-light: #0a0a0a;
             --card-bg: #121212;
-            --accent-color: #e60000; /* أحمر دموي قوي */
+            --accent-color: #e60000;
             --accent-glow: rgba(230, 0, 0, 0.4);
             --text-color: #ffffff;
             --text-muted: #a0a0a0;
@@ -40,7 +53,7 @@
             direction: rtl;
         }
 
-        /* Custom Scrollbar */
+        /* Scrollbar */
         ::-webkit-scrollbar {
             width: 6px;
         }
@@ -52,7 +65,7 @@
             border-radius: 4px;
         }
 
-        /* Utility Classes */
+        /* Containers & Sections */
         .container {
             width: 100%;
             max-width: 1200px;
@@ -112,7 +125,24 @@
             color: var(--accent-color);
         }
 
-        /* Language Toggle Button */
+        .nav-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-color);
+        }
+
         .lang-btn {
             background: var(--accent-color);
             color: #fff;
@@ -124,7 +154,7 @@
             font-size: 0.9rem;
             transition: all 0.3s ease;
             box-shadow: 0 4px 12px var(--accent-glow);
-            font-family: 'Poppins', 'Cairo', sans-serif;
+            font-family: inherit;
         }
 
         .lang-btn:hover {
@@ -132,7 +162,7 @@
             box-shadow: 0 6px 18px var(--accent-glow);
         }
 
-        /* Hero Section */
+        /* Hero */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -175,7 +205,6 @@
             margin-bottom: 1.5rem;
         }
 
-        /* Bio Specs Badges */
         .bio-specs {
             display: flex;
             flex-wrap: wrap;
@@ -198,16 +227,10 @@
             gap: 6px;
         }
 
-        body.rtl .spec-badge i {
-            margin-left: 2px;
-            margin-right: 0;
-        }
-
         .spec-badge i {
             color: var(--accent-color);
         }
 
-        /* Savage Quote */
         .savage-quote {
             background: rgba(18, 18, 18, 0.7);
             border-left: 5px solid var(--accent-color);
@@ -232,7 +255,7 @@
             font-weight: 600;
         }
 
-        /* About Me Section */
+        /* About Section */
         .about {
             background-color: var(--bg-light);
         }
@@ -282,7 +305,7 @@
             font-size: 0.85rem;
         }
 
-        /* Capabilities Section */
+        /* Capabilities */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -319,7 +342,6 @@
             font-size: 0.9rem;
         }
 
-        /* Philosophy Banner */
         .philosophy-banner {
             background: linear-gradient(135deg, #180000 0%, #050505 100%);
             padding: 3rem 1.5rem;
@@ -329,17 +351,7 @@
             border: 1px solid rgba(230, 0, 0, 0.1);
         }
 
-        .philosophy-banner h3 {
-            font-size: 1.6rem;
-            margin-bottom: 1rem;
-        }
-
-        .philosophy-banner p {
-            color: var(--text-muted);
-            font-size: 1rem;
-        }
-
-        /* Timeline Section */
+        /* Timeline */
         .timeline-section {
             background-color: var(--bg-light);
         }
@@ -391,6 +403,13 @@
             font-size: 0.85rem;
         }
 
+        /* Interactive Web Application Section */
+        #interactive-app {
+            background: var(--bg-color);
+            min-height: 400px;
+            border-top: 1px solid rgba(230, 0, 0, 0.1);
+        }
+
         /* Footer */
         footer {
             text-align: center;
@@ -400,7 +419,6 @@
             border-top: 1px solid rgba(230, 0, 0, 0.05);
         }
 
-        /* Responsive Breakpoints */
         @media (min-width: 768px) {
             .about-content {
                 flex-direction: row;
@@ -448,12 +466,6 @@
                 text-align: right;
             }
         }
-
-        @media (max-width: 480px) {
-            .hero h1 { font-size: 2.2rem; }
-            .tagline { font-size: 1rem; }
-            .section-title { font-size: 1.8rem; }
-        }
     </style>
 </head>
 <body>
@@ -461,7 +473,10 @@
     <!-- Navbar -->
     <nav>
         <a href="#" class="logo">Vortex<span>Shadow</span></a>
-        <button class="lang-btn" id="langBtn" onclick="toggleLanguage()">AR</button>
+        <div class="nav-actions">
+            <a href="#interactive-app" class="nav-link" id="appNavLink">App View</a>
+            <button class="lang-btn" id="langBtn" onclick="toggleLanguage()">AR</button>
+        </div>
     </nav>
 
     <!-- Hero Section -->
@@ -473,7 +488,6 @@
         <h1 id="heroTitle">Hi, I am <span>Kiro</span></h1>
         <div class="tagline" id="heroTagline">FullStack Developer & Master of System Architectures</div>
 
-        <!-- Badges -->
         <div class="bio-specs">
             <div class="spec-badge"><i class="fas fa-terminal"></i> <span id="badge1">Alias: VortexShadow</span></div>
             <div class="spec-badge"><i class="fas fa-bold"></i> <span id="badge2">15 Years Old</span></div>
@@ -481,13 +495,12 @@
             <div class="spec-badge"><i class="fas fa-history"></i> <span id="badge4">6+ Years Experience</span></div>
         </div>
 
-        <!-- Savage Quote -->
         <div class="savage-quote">
             <p id="savageQuote">"Coding is my ultimate priority, and frankly... I couldn't care less about anyone else's opinion. Code talks, bullshit walks."</p>
         </div>
     </section>
 
-    <!-- About Me Section -->
+    <!-- About Section -->
     <section class="about section-padding">
         <div class="container">
             <h2 class="section-title" id="aboutTitle">Who is <span>VortexShadow?</span></h2>
@@ -592,6 +605,16 @@
         </div>
     </section>
 
+    <!-- Interactive App Section -->
+    <section id="interactive-app" class="section-padding">
+        <div class="container">
+            <h2 class="section-title" id="appTitle">Interactive <span>Application</span></h2>
+            <p class="section-subtitle" id="appSubtitle">Experience the dynamic React application powered by VortexShadow assets.</p>
+            <!-- React Root Mounting Point -->
+            <div id="root"></div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer id="footerText">
         &copy; 2026 VortexShadow (Kiro). All rights reserved. Built with pride in Cairo, Egypt.
@@ -603,6 +626,7 @@
 
         const data = {
             en: {
+                appNavLink: "App View",
                 heroTitle: "Hi, I am <span>Kiro</span>",
                 heroTagline: "FullStack Developer & Master of System Architectures",
                 badge1: "Alias: VortexShadow",
@@ -637,9 +661,12 @@
                 time2_h: "2022 - Bot Architecture", time2_p: "Expanded heavily into advanced Node.js and API structures. Developed multiple sophisticated Discord frameworks capable of managing thousands of requests seamlessly.",
                 time3_h: "2024 - Gaming Infrastructures", time3_p: "Mastered Minecraft server engineering, diving into Java-based plugin adjustments, server resource optimization, and designing custom tailored competitive seasons.",
                 time4_h: "2026 - Present Mastery", time4_p: "Rebranded as VortexShadow. Actively engineering high-end responsive Web Applications, combining advanced frontend UI with powerful, scalable backend databases.",
+                appTitle: "Interactive <span>Application</span>",
+                appSubtitle: "Experience the dynamic React application powered by VortexShadow assets.",
                 footer: "&copy; 2026 VortexShadow (Kiro). All rights reserved. Built with pride in Cairo, Egypt."
             },
             ar: {
+                appNavLink: "التطبيق",
                 heroTitle: "يا هلا، أنا <span>كيرو</span>",
                 heroTagline: "مطور فول ستاك وبرمجلي كل حاجة في السيستم",
                 badge1: "اللقب: VortexShadow",
@@ -661,7 +688,7 @@
                 card1_title: "بوتات ديسكورد متطورة",
                 card1_p: "برمجة بوتات ديسكورد جبارة وسريعة لخدمة السيرفرات الكبيرة. شغل داتا بيز، لوجات حماية، سيستم موديريشن شغال أوتوماتيك بالكامل وبأمان تام.",
                 card2_title: "مواقع FullStack",
-                card2_p: "تصميم وبناء مواقع ويب سريعة جداً ومتجاوبة مع أي شاشة في الدنيا. بدمج واجهات فرونت-إند شكلها رايق مع باك-إند قوي ومؤمن ميفوتش غلطة.",
+                card card2_p: "تصميم وبناء مواقع ويب سريعة جداً ومتجاوبة مع أي شاشة في الدنيا. بدمج واجهات فرونت-إند شكلها رايق مع باك-إند قوي ومؤمن ميفوتش غلطة.",
                 card3_title: "مواسم ماين كرافت",
                 card3_p: "تظبيط وبناء مواسم كاملة لسيرفرات ماين كرافت. هندسة السيرفر من الصفر، ربط النيتورك، تظبيط الهوست والأداء، وعمل إيفنتات خالية من اللاج.",
                 card4_title: "بلجنز ومودز (Plugins & Mods)",
@@ -674,6 +701,8 @@
                 time2_h: "2022 - معمارية البوتات", time2_p: "اتوسعت جامد في الـ Node.js وعملت بوتات ديسكورد قوية بتستحمل آلاف الروكويستات من غير ما تقع.",
                 time3_h: "2024 - سيرفرات ماين كرافت", time3_p: "فهمت كواليس السيرفرات، تعديل بلجنز الجافا، تظبيط استهلاك الموارد، وبناء مواسم تنافسية متكاملة.",
                 time4_h: "2026 - الاحتراف والـ Mastery", time4_p: "الاسم الجديد بقا VortexShadow. شغال دلوقتي على ويب أبليكيشنز بميزات متطورة وربط داتا بيز حقيقي وسريع.",
+                appTitle: "التطبيق <span>التفاعلي</span>",
+                appSubtitle: "تجربة تطبيق React التفاعلي المربوط بأصول VortexShadow.",
                 footer: "&copy; 2026 جميع الحقوق محفوظة لـ VortexShadow (كيرو). اتعمل بكل حب وفخر في القاهرة، مصر."
             }
         };
@@ -690,6 +719,7 @@
             }
 
             const l = data[currentLang];
+            document.getElementById('appNavLink').innerText = l.appNavLink;
             document.getElementById('heroTitle').innerHTML = l.heroTitle;
             document.getElementById('heroTagline').innerText = l.heroTagline;
             document.getElementById('badge1').innerText = l.badge1;
@@ -730,6 +760,8 @@
             document.getElementById('time3-p').innerText = l.time3_p;
             document.getElementById('time4-h').innerText = l.time4_h;
             document.getElementById('time4-p').innerText = l.time4_p;
+            document.getElementById('appTitle').innerHTML = l.appTitle;
+            document.getElementById('appSubtitle').innerText = l.appSubtitle;
             document.getElementById('footerText').innerHTML = l.footer;
         }
     </script>
