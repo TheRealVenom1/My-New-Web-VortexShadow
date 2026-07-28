@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VortexShadow | Portfolio & App</title>
+    <title>VortexShadow | Portfolio</title>
     <meta name="description" content="VortexShadow Website & Portfolio" />
     <meta name="author" content="VortexShadow" />
     <link rel="icon" type="image/png" href="https://i.ibb.co/wFX9XVCv/file-000000008ba871f4845a6e51a021867f.png">
@@ -17,11 +17,7 @@
 
     <!-- Icons & Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-    <!-- React App Assets Integration -->
-    <script type="module" crossorigin src="/assets/index-DqnGO9AM.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-C0hq3I7x.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -63,6 +59,18 @@
         ::-webkit-scrollbar-thumb {
             background: var(--accent-color);
             border-radius: 4px;
+        }
+
+        /* Global Entrance Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* Containers & Sections */
@@ -119,6 +127,11 @@
             font-weight: 800;
             color: var(--text-color);
             text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
         }
 
         .logo span {
@@ -127,7 +140,7 @@
 
         .nav-actions {
             display: flex;
-            gap: 1rem;
+            gap: 1.2rem;
             align-items: center;
         }
 
@@ -136,11 +149,12 @@
             text-decoration: none;
             font-weight: 600;
             font-size: 0.9rem;
-            transition: color 0.3s ease;
+            transition: color 0.3s ease, transform 0.3s ease;
         }
 
         .nav-link:hover {
             color: var(--accent-color);
+            transform: translateY(-2px);
         }
 
         .lang-btn {
@@ -158,7 +172,7 @@
         }
 
         .lang-btn:hover {
-            transform: translateY(-2px);
+            transform: translateY(-2px) scale(1.05);
             box-shadow: 0 6px 18px var(--accent-glow);
         }
 
@@ -171,11 +185,17 @@
             align-items: center;
             text-align: center;
             padding: 7rem 1rem 3rem 1rem;
-            background: radial-gradient(circle at center, rgba(230, 0, 0, 0.08) 0%, transparent 75%);
+            background: radial-gradient(circle at center, rgba(230, 0, 0, 0.1) 0%, transparent 75%);
         }
 
         .avatar-container {
             margin-bottom: 1.5rem;
+            animation: pulseGlow 3s infinite alternate;
+        }
+
+        @keyframes pulseGlow {
+            0% { transform: scale(1); filter: drop-shadow(0 0 15px var(--accent-glow)); }
+            100% { transform: scale(1.03); filter: drop-shadow(0 0 30px rgba(230, 0, 0, 0.8)); }
         }
 
         .avatar {
@@ -183,7 +203,6 @@
             height: 140px;
             border-radius: 50%;
             border: 4px solid var(--accent-color);
-            box-shadow: 0 0 25px var(--accent-glow);
             object-fit: cover;
         }
 
@@ -220,11 +239,18 @@
             border-radius: 20px;
             font-size: 0.85rem;
             font-weight: 500;
-            border: 1px solid rgba(230, 0, 0, 0.1);
+            border: 1px solid rgba(230, 0, 0, 0.15);
             color: #e0e0e6;
             display: flex;
             align-items: center;
             gap: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .spec-badge:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-3px);
+            background: rgba(230, 0, 0, 0.1);
         }
 
         .spec-badge i {
@@ -291,6 +317,12 @@
             border-radius: 15px;
             border: 1px solid rgba(230, 0, 0, 0.05);
             text-align: center;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .stat-box:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
         }
 
         .stat-box h4 {
@@ -318,12 +350,13 @@
             border-radius: 15px;
             text-align: start;
             border: 1px solid rgba(230, 0, 0, 0.05);
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
             border-color: var(--accent-color);
+            box-shadow: 0 10px 25px rgba(230, 0, 0, 0.15);
         }
 
         .card i {
@@ -390,6 +423,12 @@
             border-radius: 12px;
             border: 1px solid rgba(230, 0, 0, 0.05);
             position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: scale(1.02);
+            border-color: var(--accent-color);
         }
 
         .timeline-content h3 {
@@ -403,11 +442,92 @@
             font-size: 0.85rem;
         }
 
-        /* Interactive Web Application Section */
-        #interactive-app {
+        /* RGB My Links Section */
+        #my-links {
             background: var(--bg-color);
-            min-height: 400px;
-            border-top: 1px solid rgba(230, 0, 0, 0.1);
+            position: relative;
+        }
+
+        /* Animated RGB Text */
+        .rgb-text {
+            background: linear-gradient(90deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bfd, #7a00ff, #ff00c8, #ff0000);
+            background-size: 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: rgbGlow 8s linear infinite;
+            font-weight: 900;
+            display: inline-block;
+        }
+
+        @keyframes rgbGlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .links-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .link-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--card-bg);
+            padding: 1.2rem 1.8rem;
+            border-radius: 15px;
+            text-decoration: none;
+            color: #fff;
+            border: 1px solid rgba(230, 0, 0, 0.15);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .link-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            border-color: #5865F2; /* Discord Color Glow */
+            box-shadow: 0 10px 25px rgba(88, 101, 242, 0.3);
+            background: rgba(88, 101, 242, 0.08);
+        }
+
+        .link-info {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+        }
+
+        .link-info i {
+            font-size: 2rem;
+            color: #5865F2;
+        }
+
+        .link-details h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .link-details p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .link-btn-icon {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .link-card:hover .link-btn-icon {
+            color: #fff;
+            transform: translateX(5px);
+        }
+
+        body.rtl .link-card:hover .link-btn-icon {
+            transform: translateX(-5px);
         }
 
         /* Footer */
@@ -474,13 +594,13 @@
     <nav>
         <a href="#" class="logo">Vortex<span>Shadow</span></a>
         <div class="nav-actions">
-            <a href="#interactive-app" class="nav-link" id="appNavLink">App View</a>
+            <a href="#my-links" class="nav-link" id="linksNavLink">My Links</a>
             <button class="lang-btn" id="langBtn" onclick="toggleLanguage()">AR</button>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero fade-in">
         <div class="avatar-container">
             <img src="https://i.ibb.co/wFX9XVCv/file-000000008ba871f4845a6e51a021867f.png" alt="VortexShadow Avatar" class="avatar">
         </div>
@@ -501,7 +621,7 @@
     </section>
 
     <!-- About Section -->
-    <section class="about section-padding">
+    <section class="about section-padding fade-in">
         <div class="container">
             <h2 class="section-title" id="aboutTitle">Who is <span>VortexShadow?</span></h2>
             <p class="section-subtitle" id="aboutSubtitle">I am Kiro, alias VortexShadow, born in Cairo 2011. I started coding in 2020 and mastered my path from there.</p>
@@ -535,7 +655,7 @@
     </section>
 
     <!-- Capabilities Section -->
-    <section class="services section-padding">
+    <section class="services section-padding fade-in">
         <div class="container">
             <h2 class="section-title" id="skillsTitle">Ultimate <span>Capabilities</span></h2>
             <p class="section-subtitle" id="skillsSubtitle">From bot frameworks to virtual game environments, if it can be coded, I can make it happen.</p>
@@ -571,7 +691,7 @@
     </section>
 
     <!-- Timeline Journey Section -->
-    <section class="timeline-section section-padding">
+    <section class="timeline-section section-padding fade-in">
         <div class="container">
             <h2 class="section-title" id="timeTitle">The <span>Timeline</span></h2>
             <p class="section-subtitle" id="timeSubtitle">A look back at how a 9-year-old kid evolved into a powerhouse developer.</p>
@@ -605,13 +725,37 @@
         </div>
     </section>
 
-    <!-- Interactive App Section -->
-    <section id="interactive-app" class="section-padding">
+    <!-- RGB My Links Section -->
+    <section id="my-links" class="section-padding fade-in">
         <div class="container">
-            <h2 class="section-title" id="appTitle">Interactive <span>Application</span></h2>
-            <p class="section-subtitle" id="appSubtitle">Experience the dynamic React application powered by VortexShadow assets.</p>
-            <!-- React Root Mounting Point -->
-            <div id="root"></div>
+            <h2 class="section-title"><span class="rgb-text">My Links</span></h2>
+            <p class="section-subtitle" id="linksSubtitle">Connect with me directly on Discord or join my official community server.</p>
+            
+            <div class="links-wrapper">
+                <!-- Link 1: Personal Discord Profile -->
+                <a href="https://discord.gg/users/1240656132578480179" target="_blank" class="link-card">
+                    <div class="link-info">
+                        <i class="fab fa-discord"></i>
+                        <div class="link-details">
+                            <h3 id="link1-title">My Discord Profile</h3>
+                            <p id="link1-desc">Direct contact & Developer Profile</p>
+                        </div>
+                    </div>
+                    <i class="fas fa-arrow-right link-btn-icon"></i>
+                </a>
+
+                <!-- Link 2: Discord Server -->
+                <a href="https://discord.gg/Pg4t2yTDCM" target="_blank" class="link-card">
+                    <div class="link-info">
+                        <i class="fas fa-users"></i>
+                        <div class="link-details">
+                            <h3 id="link2-title">My Discord Server</h3>
+                            <p id="link2-desc">Join the community & projects network</p>
+                        </div>
+                    </div>
+                    <i class="fas fa-arrow-right link-btn-icon"></i>
+                </a>
+            </div>
         </div>
     </section>
 
@@ -620,13 +764,35 @@
         &copy; 2026 VortexShadow (Kiro). All rights reserved. Built with pride in Cairo, Egypt.
     </footer>
 
-    <!-- Translation Script -->
+    <!-- Scripts -->
     <script>
+        // Scroll Animation (Intersection Observer)
+        document.addEventListener("DOMContentLoaded", function() {
+            const faders = document.querySelectorAll('.fade-in');
+            const appearOptions = {
+                threshold: 0.15,
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+                    entry.target.classList.add('visible');
+                    appearOnScroll.unobserve(entry.target);
+                });
+            }, appearOptions);
+
+            faders.forEach(fader => {
+                appearOnScroll.observe(fader);
+            });
+        });
+
+        // Translation Script
         let currentLang = 'en';
 
         const data = {
             en: {
-                appNavLink: "App View",
+                linksNavLink: "My Links",
                 heroTitle: "Hi, I am <span>Kiro</span>",
                 heroTagline: "FullStack Developer & Master of System Architectures",
                 badge1: "Alias: VortexShadow",
@@ -661,12 +827,13 @@
                 time2_h: "2022 - Bot Architecture", time2_p: "Expanded heavily into advanced Node.js and API structures. Developed multiple sophisticated Discord frameworks capable of managing thousands of requests seamlessly.",
                 time3_h: "2024 - Gaming Infrastructures", time3_p: "Mastered Minecraft server engineering, diving into Java-based plugin adjustments, server resource optimization, and designing custom tailored competitive seasons.",
                 time4_h: "2026 - Present Mastery", time4_p: "Rebranded as VortexShadow. Actively engineering high-end responsive Web Applications, combining advanced frontend UI with powerful, scalable backend databases.",
-                appTitle: "Interactive <span>Application</span>",
-                appSubtitle: "Experience the dynamic React application powered by VortexShadow assets.",
+                linksSubtitle: "Connect with me directly on Discord or join my official community server.",
+                link1_title: "My Discord Profile", link1_desc: "Direct contact & Developer Profile",
+                link2_title: "My Discord Server", link2_desc: "Join the community & projects network",
                 footer: "&copy; 2026 VortexShadow (Kiro). All rights reserved. Built with pride in Cairo, Egypt."
             },
             ar: {
-                appNavLink: "التطبيق",
+                linksNavLink: "روابطي",
                 heroTitle: "يا هلا، أنا <span>كيرو</span>",
                 heroTagline: "مطور فول ستاك وبرمجلي كل حاجة في السيستم",
                 badge1: "اللقب: VortexShadow",
@@ -701,8 +868,9 @@
                 time2_h: "2022 - معمارية البوتات", time2_p: "اتوسعت جامد في الـ Node.js وعملت بوتات ديسكورد قوية بتستحمل آلاف الروكويستات من غير ما تقع.",
                 time3_h: "2024 - سيرفرات ماين كرافت", time3_p: "فهمت كواليس السيرفرات، تعديل بلجنز الجافا، تظبيط استهلاك الموارد، وبناء مواسم تنافسية متكاملة.",
                 time4_h: "2026 - الاحتراف والـ Mastery", time4_p: "الاسم الجديد بقا VortexShadow. شغال دلوقتي على ويب أبليكيشنز بميزات متطورة وربط داتا بيز حقيقي وسريع.",
-                appTitle: "التطبيق <span>التفاعلي</span>",
-                appSubtitle: "تجربة تطبيق React التفاعلي المربوط بأصول VortexShadow.",
+                linksSubtitle: "تواصل معايا مباشرة على ديسكورد أو انضم لسيرفر مجتمعنا الرسمي.",
+                link1_title: "حسابي على ديسكورد", link1_desc: "تواصل مباشر وبروفايل المطور",
+                link2_title: "سيرفر الديسكورد الخاص بي", link2_desc: "انضم للمجتمع وشوف أحدث المشاريع",
                 footer: "&copy; 2026 جميع الحقوق محفوظة لـ VortexShadow (كيرو). اتعمل بكل حب وفخر في القاهرة، مصر."
             }
         };
@@ -719,7 +887,7 @@
             }
 
             const l = data[currentLang];
-            document.getElementById('appNavLink').innerText = l.appNavLink;
+            document.getElementById('linksNavLink').innerText = l.linksNavLink;
             document.getElementById('heroTitle').innerHTML = l.heroTitle;
             document.getElementById('heroTagline').innerText = l.heroTagline;
             document.getElementById('badge1').innerText = l.badge1;
@@ -760,10 +928,14 @@
             document.getElementById('time3-p').innerText = l.time3_p;
             document.getElementById('time4-h').innerText = l.time4_h;
             document.getElementById('time4-p').innerText = l.time4_p;
-            document.getElementById('appTitle').innerHTML = l.appTitle;
-            document.getElementById('appSubtitle').innerText = l.appSubtitle;
+            document.getElementById('linksSubtitle').innerText = l.linksSubtitle;
+            document.getElementById('link1-title').innerText = l.link1_title;
+            document.getElementById('link1-desc').innerText = l.link1_desc;
+            document.getElementById('link2-title').innerText = l.link2_title;
+            document.getElementById('link2-desc').innerText = l.link2_desc;
             document.getElementById('footerText').innerHTML = l.footer;
         }
     </script>
 </body>
 </html>
+ 
